@@ -74,7 +74,7 @@ In addition to the base Python module, the SciPy package is also available as an
 
 If you want to use any of these Python modules, load a Python version of your choice and then use `module load scipy-stack`. However, as an alternative way you may need to install these modules with pyhton package manager as explained later.
 
-For more details, including version numbers of the contained packages, visit [Scipy.org](https://www.scipy.org/stackspec.html).
+More information about this can be find [here](https://docs.computecanada.ca/wiki/Python)
 
 ---
 ## Creating and using a virtual environment
