@@ -72,7 +72,7 @@ In addition to the base Python module, the SciPy package is also available as an
 - Sympy
 - nose
 
-If you want to use any of these Python modules, load a Python version of your choice and then use `module load scipy-stack`. However, as an alternative way you may need to install these modules with pyhton package manager as explained later.
+If you want to use any of these Python modules, load a Python version, then use `module load scipy-stack`. However, as an alternative way you may need to install these modules with the pyhton package manager as explained later.
 
 More information about this can be find [here](https://docs.computecanada.ca/wiki/Python)
 
@@ -80,7 +80,7 @@ More information about this can be find [here](https://docs.computecanada.ca/wik
 ## Creating and using a virtual environment
 With each version of Python, Compute Canada provides the tool virtualenv. This tool allows users to create virtual environments within which you can easily install Python modules. This tools allows one to install many versions of the same module, for example, or to customize a Python installation according to the needs of a specific project. It also helps to resolve version conflicts while installing new modules by simply removing virtualenv folder and reinstalling the modules. This will take no time and keep the Python tidy and prevents chaos. Therefore, it is highly recommended to first set up a virtual environment in both your personal computer and Compute Canada account before installing Python modules.
 
-To create a virtual environment, ensure you have selected a Python version with `module load python` as shown above. Then enter the following command, where ENV is the name of the empty directory containing your environment, and it is recommended to place it in the home directory on the Compute Canada cluster:
+To create a virtual environment, ensure you have selected a Python version with `module load python` as shown above. Then enter the following command, where `ENV` is the name of the empty directory containing your environment. It is recommended to place `ENV` in the home directory on the Compute Canada cluster:
 ```
 [name@server ~]$ virtualenv --no-download ~/ENV
 ```
@@ -103,7 +103,7 @@ More information about this can be find [here](https://docs.computecanada.ca/wik
 ---
 ## Installing Python modules
 ### Pytorch (GPU and CPU)
-The preferred option is to install it using the Python wheel as follows:
+The preferred option is to install it using the python package manager pip3 as follows:
 
 1. Load a Python module, as shown above
 2. Create and start a virtual environment.
@@ -135,6 +135,7 @@ Install tensorboardX in the virtual environment with pip3 install:
 (ENV) [name@server ~] pip3 install tensorboardX
 ```
 tensorboardX should be installed both on your personal computer and Compute Canada account. After running the Python script, you need to first download the log files created by the Python script from Compute Canada to your personal computer and then visualize the results using the command `tensorboard --logdir logs`. logs is the folder address where you store the log files.
+
 More information about this can be find [here](https://github.com/lanpa/tensorboardX)
 ### Matplotlib
 Matplotlib is a plotting library for the Python programming language. Matplotlib can either be loaded as part of SciPy stack as shown above or installed with pip3 install in the virtual environment. Because Compute Canada doest not let the Python script to get access to dispaly server you need to save the figures created by matplotlib as picture files, then download them to your personal computer to see the results.
@@ -145,9 +146,9 @@ IPython (Interactive Python) is a command shell for interactive computing, origi
 ## Transfer data
 It is recommended to Use data transfer nodes, also called data mover nodes, instead of login nodes whenever you are transferring data to and from Compute Canada clusters. If a data transfer node is available, its URL will be given near the top of the main page for each cluster: Béluga, Cedar, Graham, Niagara.
 
-As Compute Canada restrict the volume of data you can upload to the root directory, it is highly recommended to store your datasets and scripts in the /home/userid/scratch folder, and use the root directory merely to set up your virtual environment as mentioned above.
+As Compute Canada restricts the volume of data you can upload to the root directory, it is highly recommended to store your datasets and scripts in the `/home/userid/scratch` folder, and use the root directory merely to set up your virtual environment as mentioned above.
 
-The commands scp can be used in a command-line environment on Linux or Mac computers to transfer data to and from Compute Canada:
+The commands `scp` can be used in a command-line environment on Linux or Mac computers to transfer data to and from Compute Canada:
 ```
 scp -r source_address destination_address
 ```
@@ -168,20 +169,19 @@ More conveniently, you can transfer data to and from Compute Canada with FileZil
 
 ---
 ## Interactive jobs
-Though batch submission is the most common and most efficient way to take advantage of our clusters, interactive jobs are also supported. These can be useful for things like:
+Though batch submission is the most common and most efficient way to take advantage of the clusters, interactive jobs are also supported. These can be useful for things like:
 
 - Data exploration at the command line
 - Interactive "console tools" like R and iPython
 - Significant software development, debugging, or compiling
 
-You can request resources from Compute Canada and start an interactibe session on compute node with salloc:
+You can request resources from Compute Canada and start an interactive session on compute nodes with salloc:
 ```
 salloc --time=1:0:0 --gres=gpu:1 --cpus-per-tasks=16 --mem=63500M --ntasks=1 --account=def-wkui
 ```
-In this example we requested the recources for 1 hour. You should not occupy the resources in interactive mode persistently for a long time (one day), otherwise you are likely to receive warning from Compute Canada.
+In this example we requested the recources for 1 hour. You should not occupy the resources in interactive mode persistently for a long time (e.g, one day), otherwise you are likely to receive warning from Compute Canada.
 
-After getting the required resources, load a Python module as shown above, start already created virtual environment as shown above, then run the Python script with the command `pthon3 script_name.py`. Because we do not have access to IDE, you need to use Python Debugger module to debug the script. To this end, use the command `import pdb: pdb.set_trace()` within the script wherever you want to pause the program. This command play the role of breakpoint in IDEs. More information about how to step in and step out with pdb can be find [here](https://docs.python.org/3/library/pdb.html). For the training purpose and working with gpu units, using the commands `ipython` or `pyhton3` in the virtual environment
-provide you with an interactive tool to write and run your code interactively.
+After getting the required resources, load a Python module as shown above, activate already created virtual environment as shown above, then run the Python script with the command `pthon3 script_name.py`. Because we do not have access to IDE, you need to use Python Debugger module to debug the script. To this end, use the command `import pdb: pdb.set_trace()` within the script wherever you want to pause the program. This command play the role of breakpoint in IDEs. More information about how to step in and step out with `pdb` can be find [here](https://docs.python.org/3/library/pdb.html). For the training purpose and working with gpu units, the commands `ipython` or `pyhton3` in the virtual environment provides you with an interactive tool to write and run your code interactively.
 
 More information about this can be find [here](https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs)
 
@@ -241,7 +241,7 @@ Because any job of 3 hours is also less than 12 hours, 24 hours, and so on, shor
 
 More information about this can be find [here](https://docs.computecanada.ca/wiki/Job_scheduling_policies)
 
-For the program that is estimated to take too long to run, therefore, it is highly recommended to save and resume the state parameters and training index on a regular basis. This let you to resubmit the job several times with shorter running intervals to avoid waiting too long in the queue. To this end, this [repository](https://github.com/vcg-uvic/compute-canada-goodies) provides a great asset.
+For the program that is estimated to take too long to run, therefore, it is highly recommended to save and resume the state parameters and training index on a regular basis. This lets you to resubmit the job several times with shorter running intervals to avoid waiting too long in the queue. To this end, this [repository](https://github.com/vcg-uvic/compute-canada-goodies) provides a great asset.
 
 ### Node characteristics
 Each cluster of Compute Canada has its own node characteristics such as the amount of memory or cpu cores available per gpu unit. These information can be found on cluster's page on Compute Canada Wiki. Fortunately, they are concisely summarized in this [python script](https://github.com/vcg-uvic/compute-canada-goodies/blob/master/python/queue_cc.py).
