@@ -72,7 +72,7 @@ In addition to the base Python module, the SciPy package is also available as an
 - Sympy
 - nose
 
-If you want to use any of these Python modules, load a Python version, then use `module load scipy-stack`. However, as an alternative way you may need to install these modules with the python package manager as explained later.
+If you want to use any of these Python modules, load a Python version, then use `module load scipy-stack`. However, as an alternative way, you can install these modules with the python package manager as explained later.
 
 More information about this can be found [here](https://docs.computecanada.ca/wiki/Python)
 
@@ -153,19 +153,21 @@ The commands `scp` can be used in a command-line environment on Linux or Mac com
 scp -r source_address destination_address
 ```
 For example, if your destination folder is located on the graham cluster, the destination address would be either `userid@graham.computecanada.ca:/home/userid/scratch/destination_folder` or `userid@gra-dtn1.computecanada.ca:/home/userid/scratch/destination_folder`. The later is recommended because it uses the transfer node instead of login node.
+
 More information about this can be found [here](https://docs.computecanada.ca/wiki/Transferring_data/en)
 
 More conveniently, you can transfer data to and from Compute Canada with FileZilla software. Install the software with `sudo apt-get install filezilla` and then set up a connection with the desired cluster as follows:
 
-- file menu/site manager
-- my site/new site: choose a name, e.g., grahamCC
-- general tab:
-  - protocol: sftp
-  - host: garahm.computecanada.ca or gra-dtn1.computecanada.ca (recommended)
-  - logon type: normal
-  - user and pass
-- ok
-- connect
+* file menu --> site manager
+* my site --> new site: choose a name, e.g., grahamCC
+* general tab:
+    * protocol: sftp
+    * host: garahm.computecanada.ca or gra-dtn1.computecanada.ca (recommended)
+    * logon type: normal
+    * user and pass
+  
+* ok
+* connect
 
 ---
 ## Interactive jobs
