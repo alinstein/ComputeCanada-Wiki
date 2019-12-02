@@ -223,7 +223,7 @@ python ~/scratch/destination_folder/python_script_name.py
 # ---------------------------------------------------------------------
 echo "Job finished with exit code $? at: `date`"
 ```
-After running the Python script, besides log files created by tensorboardX and picture files created by matplotlib, a text file known as the output file will be created that reports the running process and records the results of I/O commands such as print().
+It is mainly made up of two parts. Within the first part, we request the desired resources, and the second part consists of commands that we want the compute node to execute. After running the Python script, besides log files created by tensorboardX and picture files created by matplotlib, a text file known as the output file will be created that reports the running process and records the results of I/O commands such as print().
 
 More information about this can be found [here](https://docs.computecanada.ca/wiki/Running_jobs#Use_sbatch_to_submit_jobs)
 
