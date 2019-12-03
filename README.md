@@ -227,7 +227,7 @@ echo "Job finished with exit code $? at: `date`"
 ```
 It is mainly made up of two parts. Within the first part, we request the desired resources, and the second part consists of commands that we want the compute node to execute. After running the Python script, besides log files created by tensorboardX and picture files created by matplotlib, a text file known as the output file will be created that reports the running process and records the results of I/O commands such as print().
 
-**It is noteworthy that you rarely need more than one gpu as it is less likely to become saturated during the training process. In case you want to further decrease the running time of your script, request enough memory and increase the batch_size for each iteration. Otherwise, you need to wait further in the queue and also make some changes to your script to fully carry out the task parallelism.**
+**It is noteworthy that you rarely need more than one gpu as it is less likely to become saturated during the training process. In case you want to further decrease the running time of your script, request enough memory and increase the batch_size for each iteration. Otherwise, you need to make some changes to your script to fully carry out the task parallelism and also you need to wait further in the queue to get the resources.**
 
 More information about this can be found [here](https://docs.computecanada.ca/wiki/Running_jobs#Use_sbatch_to_submit_jobs)
 
