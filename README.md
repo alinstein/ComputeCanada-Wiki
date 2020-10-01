@@ -179,7 +179,7 @@ Though batch submission is the most common and most efficient way to take advant
 
 You can request resources from Compute Canada and start an interactive session on compute nodes with salloc:
 ```
-salloc --time=1:0:0 --gres=gpu:1 --cpus-per-tasks=16 --mem=63500M --ntasks=1 --account=def-wkui
+salloc --time=1:0:0 --gres=gpu:1 --cpus-per-task=16 --mem=63500M --ntasks=1 --account=def-wkui
 ```
 In this example, we requested the resources for 1 hour. You should not occupy the resources in interactive mode persistently for a long time (e.g, one day), otherwise you are likely to receive a warning from Compute Canada.
 
